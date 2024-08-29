@@ -1,0 +1,156 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #183f66;
+    margin: 0;
+    padding: 0;
+    color: white;
+    overflow-x: hidden; /* Prevent horizontal scrolling due to animation */
+    position: relative;
+    background: 'url(background.png)', linear-gradient(to bottom, #001f3f, #004080); /* Add background image */
+    background-size: cover, 400% 400%; /* Ensure image covers the entire background */
+    background-blend-mode: overlay; /* Blend the image with the gradient */
+    animation: backgroundMove 15s ease infinite; /* Smooth background animation */
+}
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+h1, h2, h3 {
+    color: #ffffff;
+    text-shadow: 2px 2px 4px #000000; /* Shadow effect on text */
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: all 0.3s ease; /* Smooth transition on focus */
+}
+
+textarea:focus {
+    border-color: #ff4136;
+    box-shadow: 0 0 10px #ff4136; /* Glow effect on focus */
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    color: white;
+    background-color: #ff4136;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff851b;
+    box-shadow: 0 0 15px #ff851b;
+}
+
+#output {
+    margin-top: 20px;
+}
+
+#output h3 {
+    margin-bottom: 10px;
+}
+
+#output ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#output ul li {
+    background-color: #180404;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    color: #333;
+}
+
+.animation-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #004080, #001f3f);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.road {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 30px;
+    background: linear-gradient(90deg, #333 20%, #777 20%, #777 40%, #333 40%, #333 60%, #777 60%, #777 80%, #333 80%);
+    background-size: 100px 100%;
+    animation: roadMove 5s linear infinite;
+}
+
+#car {
+    position: absolute;
+    bottom: 10px;
+    left: -150px;
+    width: 150px;
+    animation: driveCar 8s cubic-bezier(0.77, 0, 0.175, 1) forwards; /* Smooth stop */
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.7));
+}
+
+#key {
+    position: absolute;
+    top: 30%;
+    left: 70%;
+    width: 50px;
+    transform: translate(-50%, -50%);
+    animation: keyInsert 1s ease-out forwards, keyRotate 1s ease-in-out 2s infinite alternate; /* Smooth key animation */
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.7));
+}
+
+@keyframes backgroundMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes roadMove {
+    0% { background-position: 0 0; }
+    100% { background-position: -100px 0; }
+}
+
+@keyframes driveCar {
+    0% { transform: translateX(-100%); }
+    80% { transform: translateX(85%); }
+    100% { transform: translateX(85%) scale(1); }
+}
+
+@keyframes keyInsert {
+    0% { transform: translate(-50%, -50%) translateY(-30px); opacity: 0; }
+    100% { transform: translate(-50%, -50%) translateY(0); opacity: 1; }
+}
+
+@keyframes keyRotate {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(45deg); }
+}

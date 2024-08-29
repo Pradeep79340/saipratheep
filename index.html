@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Sales Conversation Analyzer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Car Sales Conversation Analyzer</h1>
+        <div class="animation-container">
+            <!-- Background Elements -->
+            <div class="road"></div>
+            <!-- Realistic Car Image -->
+            <img src="car.png" alt="Car" id="car">
+            <!-- Realistic Key Image -->
+            <img src="key.png" alt="Key" id="key">
+        </div>
+        <textarea id="transcriptInput" placeholder="Paste conversation transcript here..."></textarea>
+        <button onclick="analyzeTranscript()" id="analyzeButton">Analyze</button>
+        <div id="output">
+            <h2>Extracted Information</h2>
+            <div id="customerRequirements">
+                <h3>Customer Requirements</h3>
+                <ul></ul>
+            </div>
+            <div id="companyPolicies">
+                <h3>Company Policies Discussed</h3>
+                <ul></ul>
+            </div>
+            <div id="customerObjections">
+                <h3>Customer Objections</h3>
+                <ul></ul>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
